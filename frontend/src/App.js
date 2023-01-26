@@ -9,6 +9,7 @@ import PlaceOrder from "./components/cart/PlaceOrder"
 import PaymentSuccess from "./components/cart/PaymentSuccess"
 import Login from "./components/login/Login"
 import Profile from "./components/profile/Profile"
+import MyOrders from "./components/myorders/MyOrders"
 import "./styles/App.scss"
 import "./styles/Header.scss"
 import "./styles/Home.scss"
@@ -17,11 +18,12 @@ import "./styles/Menu.scss"
 import "./styles/Footer.scss"
 import "./styles/Contact.scss"
 import "./styles/Cart.scss"
-import "./styles/OrderDetails.scss"
+import "./styles/Shipping.scss"
 import "./styles/PlaceOrder.scss"
 import "./styles/PaymentSuccess.scss"
 import "./styles/Login.scss"
 import "./styles/Profile.scss"
+import "./styles/Table.scss"
 
 
 function App() {
@@ -34,9 +36,10 @@ function App() {
       <Route path="/profile" element={<Profile/>}/>
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/cart" element={<Cart/>}/>
-      <Route path="/orderdetails" element={<Order/>}/>
+      <Route path="/Shipping" element={<Order/>}/>
       <Route path="/placeorder" element={<PlaceOrder/>}/>
       <Route path="/paymentsuccess" element={<PaymentSuccess/>}/>
+      <Route path="/myorders" element={<MyOrders/>}/>
     </Routes>
     <Footer/>
    </Router>

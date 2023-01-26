@@ -3,9 +3,9 @@ import {Country, State} from "country-state-city"
 
 const Order = () => {
   return (
-    <section className='orderDetails'>
+    <section className='shipping'>
         <main>
-            <h1>Order Details</h1>
+            <h1>Shipping</h1>
             <form action="">
                 {/* Address details */}
                 <div>
