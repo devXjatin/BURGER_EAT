@@ -12,6 +12,7 @@ import Profile from "./components/profile/Profile"
 import MyOrders from "./components/myorders/MyOrders"
 import OrderDetails from "./components/myorders/OrderDetails"
 import Dashboard from "./components/admin/Dashboard"
+import Users from "./components/admin/Users"
 import "./styles/App.scss"
 import "./styles/Header.scss"
 import "./styles/Home.scss"
@@ -46,6 +47,7 @@ function App() {
       <Route path="/myorders" element={<MyOrders/>}/>
       <Route path="/order/:id" element={<OrderDetails/>}/>
       <Route path="/admin/dashboard" element={<Dashboard/>}/>
+      <Route path="/admin/users" element={<Users/>}/>
     </Routes>
     <Footer/>
    </Router>
