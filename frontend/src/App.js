@@ -5,7 +5,7 @@ import "./styles/App.scss"
 import "./styles/Header.scss"
 import "./styles/Home.scss"
 import "./styles/Founder.scss"
-
+import "./styles/Menu.scss"
 
 
 function App() {
