@@ -4,6 +4,7 @@ import Header from "./components/layout/Header"
 import "./styles/App.scss"
 import "./styles/Header.scss"
 import "./styles/Home.scss"
+import "./styles/Founder.scss"
 
 
 

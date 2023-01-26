@@ -1,7 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Founder from "./Founder";
 const Home = () => {
   return (
+    <>
     <section className="home">
       <div>
         <motion.h1
@@ -28,6 +30,8 @@ const Home = () => {
         Explore Menu
       </motion.a>
     </section>
+    <Founder/>
+    </>
   );
 };
 
