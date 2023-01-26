@@ -6,6 +6,8 @@ import "./styles/Header.scss"
 import "./styles/Home.scss"
 import "./styles/Founder.scss"
 import "./styles/Menu.scss"
+import "./styles/Footer.scss"
+import Footer from "./components/layout/Footer"
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>}/>
     </Routes>
+    <Footer/>
    </Router>
   );
 }
