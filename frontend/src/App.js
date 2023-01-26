@@ -14,6 +14,8 @@ import OrderDetails from "./components/myorders/OrderDetails"
 import Dashboard from "./components/admin/Dashboard"
 import Users from "./components/admin/Users"
 import Orders from "./components/admin/Orders"
+import About from "./components/about/About"
+import NotFound  from "./components/layout/NotFound"
 import "./styles/App.scss"
 import "./styles/Header.scss"
 import "./styles/Home.scss"
@@ -30,6 +32,8 @@ import "./styles/Profile.scss"
 import "./styles/Table.scss"
 import "./styles/OrderDetails.scss"
 import "./styles/Dashboard.scss"
+import "./styles/About.scss"
+
 
 
 
@@ -51,6 +55,8 @@ function App() {
       <Route path="/admin/dashboard" element={<Dashboard/>}/>
       <Route path="/admin/users" element={<Users/>}/>
       <Route path="/admin/orders" element={<Orders/>}/>
+      <Route path="/about" element={<About/>}/>
+      <Route path="*" element={<NotFound/>}/>
     </Routes>
     <Footer/>
    </Router>
