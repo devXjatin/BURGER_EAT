@@ -10,6 +10,7 @@ import PaymentSuccess from "./components/cart/PaymentSuccess"
 import Login from "./components/login/Login"
 import Profile from "./components/profile/Profile"
 import MyOrders from "./components/myorders/MyOrders"
+import OrderDetails from "./components/myorders/OrderDetails"
 import "./styles/App.scss"
 import "./styles/Header.scss"
 import "./styles/Home.scss"
@@ -24,6 +25,7 @@ import "./styles/PaymentSuccess.scss"
 import "./styles/Login.scss"
 import "./styles/Profile.scss"
 import "./styles/Table.scss"
+import "./styles/OrderDetails.scss"
 
 
 function App() {
@@ -40,6 +42,7 @@ function App() {
       <Route path="/placeorder" element={<PlaceOrder/>}/>
       <Route path="/paymentsuccess" element={<PaymentSuccess/>}/>
       <Route path="/myorders" element={<MyOrders/>}/>
+      <Route path="/order/:id" element={<OrderDetails/>}/>
     </Routes>
     <Footer/>
    </Router>
