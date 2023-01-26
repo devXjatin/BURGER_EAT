@@ -3,7 +3,7 @@ import Home from "./components/home/Home"
 import Header from "./components/layout/Header"
 import "./styles/App.scss"
 import "./styles/Header.scss"
-import "./styles/"
+import "./styles/Home.scss"
 
 
 
