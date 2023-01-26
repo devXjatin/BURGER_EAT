@@ -8,6 +8,7 @@ import Order from "./components/cart/Order"
 import PlaceOrder from "./components/cart/PlaceOrder"
 import PaymentSuccess from "./components/cart/PaymentSuccess"
 import Login from "./components/login/Login"
+import Profile from "./components/profile/Profile"
 import "./styles/App.scss"
 import "./styles/Header.scss"
 import "./styles/Home.scss"
@@ -20,15 +21,17 @@ import "./styles/OrderDetails.scss"
 import "./styles/PlaceOrder.scss"
 import "./styles/PaymentSuccess.scss"
 import "./styles/Login.scss"
+import "./styles/Profile.scss"
 
 
 function App() {
   return (
    <Router>
-    <Header/>
+    <Header isAuthenticated={true}/>
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/login" element={<Login/>}/>
+      <Route path="/profile" element={<Profile/>}/>
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/cart" element={<Cart/>}/>
       <Route path="/orderdetails" element={<Order/>}/>
