@@ -73,7 +73,7 @@ const Cart = () => {
                 <p>₹{2000+2000*0.18+200}</p>
             </div>
 
-            <Link to="/order">Checkout</Link>
+            <Link to="/orderdetails">Checkout</Link>
 
         </article>
       </main>

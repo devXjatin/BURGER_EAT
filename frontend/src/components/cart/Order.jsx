@@ -3,7 +3,7 @@ import {Country, State} from "country-state-city"
 
 const Order = () => {
   return (
-    <section className='order'>
+    <section className='orderDetails'>
         <main>
             <h1>Order Details</h1>
             <form action="">
@@ -58,7 +58,7 @@ const Order = () => {
                 </div>
 
                 {/* place order button */}
-                <button type='submit'>Place Order</button>
+                <button type='submit'>Confirm Order</button>
             </form>
         </main>
     </section>
