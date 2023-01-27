@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { urlencoded } from 'express';
 import dotenv from 'dotenv'
 import {connectPassport} from "./utils/Provider.js"
 import session from 'express-session';
@@ -19,6 +19,10 @@ app.use(session({
     saveUninitialized:false
 }))
 app.use(cookieParser())
+app.use(express.json())
+app.use(urlencoded({
+    extended:true
+}))
 app.use(passport.authenticate("session"))
 app.use(passport.initialize());
 app.use(passport.session())
