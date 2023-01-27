@@ -2,7 +2,9 @@ import express from 'express';
 import dotenv from 'dotenv'
 import {connectPassport} from "./utils/Provider.js"
 import session from 'express-session';
-
+import cookieParser from 'cookie-parser';
+import { errorMiddleware } from './api/v1/middlewares/errorMiddleware.js';
+import passport from 'passport';
 const app = express();
 export default app
 
@@ -16,7 +18,7 @@ app.use(session({
     resave:false,
     saveUninitialized:false
 }))
-
+app.use(cookieParser())
 app.use(passport.authenticate("session"))
 app.use(passport.initialize());
 app.use(passport.session())
@@ -29,6 +31,11 @@ app.get('/', (req, res)=>{
 
 // Importing routes
 import userRoute from "./api/v1/routes/user.js";
-import passport from 'passport';
 
 app.use("/api/v1", userRoute);
+
+
+//using error middleware
+app.use(errorMiddleware)
+
+

@@ -1,5 +1,7 @@
 import express from "express";
 import passport from "passport";
+import { getMyProfile, logout } from "../controllers/user.js";
+import { isAuthenticated } from "../middlewares/auth.js";
 
 const router = express.Router();
 
@@ -9,10 +11,17 @@ router.get("/google-oauth", passport.authenticate("google",{
 }))
 
 //login route 
-router.get("/login", passport.authenticate("google",{
-    scope:["profile"],
-    successRedirect:process.env.FRONTEND_URL
-}))
+router.get("/login", passport.authenticate("google"),(
+    (req,res, next)=>{
+        res.send("Logged In")
+    }
+))
+
+//profile route
+router.get("/me", isAuthenticated, getMyProfile)
+
+//logout route
+router.get("/logout",logout)
 
 
 
