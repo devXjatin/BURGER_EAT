@@ -1,7 +1,7 @@
 import express from "express";
 import passport from "passport";
-import { getMyProfile, logout } from "../controllers/user.js";
-import { isAuthenticated } from "../middlewares/auth.js";
+import { getAdminUsers, getMyProfile, logout } from "../controllers/user.js";
+import { authorizeAdmin, isAuthenticated } from "../middlewares/auth.js";
 
 const router = express.Router();
 
@@ -22,6 +22,9 @@ router.get("/me", isAuthenticated, getMyProfile)
 
 //logout route
 router.get("/logout",logout)
+
+//admin route
+router.get("/admin/users", isAuthenticated, authorizeAdmin, getAdminUsers)
 
 
 

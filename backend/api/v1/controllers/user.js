@@ -1,3 +1,5 @@
+import {asyncError} from "../middlewares/errorMiddleware.js"
+import {User} from "../models/User.js"
 
 //get my profile business logic
 export const getMyProfile = (req, res, next)=>{
@@ -21,3 +23,12 @@ export const logout = (req, res, next)=>{
         })
     })
 }
+
+//get all users to admin role
+export const getAdminUsers = asyncError(async(req, res, next)=>{
+    const users = await User.find({});
+    res.status(200).json({
+        success:true,
+        users
+    })
+})
