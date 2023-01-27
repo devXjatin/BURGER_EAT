@@ -34,9 +34,6 @@ import "./styles/OrderDetails.scss"
 import "./styles/Dashboard.scss"
 import "./styles/About.scss"
 
-
-
-
 function App() {
   return (
    <Router>
