@@ -7,3 +7,10 @@ export const isAuthenticated = (req,res,next)=>{
     }
     next();
 }
+
+export const authorizeAdmin = (req,res,next)=>{
+    if(req.user.role!=="Admin"){
+        return next(new ErrorHandler("Admin Allowed Only!", 405))
+    }
+    next();
+}

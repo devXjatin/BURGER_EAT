@@ -1,6 +1,6 @@
 import express  from "express";
 import passport from "passport";
-import { isAuthenticated } from "../middlewares/auth.js";
+import { authorizeAdmin, isAuthenticated } from "../middlewares/auth.js";
 import { getAdminOrders, getMyOrders, getOrderDetails, orderCreated, processOrders } from "../controllers/order.js";
 const router = express.Router();
 
@@ -15,9 +15,9 @@ router.get("/myorders", isAuthenticated, getMyOrders)
 router.get("/order/:id", isAuthenticated, getOrderDetails)
 
 //get admin orders and add admin middleware
-router.get("/admin/orders", isAuthenticated, getAdminOrders)
+router.get("/admin/orders", isAuthenticated, authorizeAdmin,getAdminOrders)
 
 //change status of the order route
-router.get("/admin/order/:id", isAuthenticated, processOrders)
+router.get("/admin/order/:id", isAuthenticated, authorizeAdmin,processOrders)
 
 export default router
