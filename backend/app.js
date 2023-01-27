@@ -35,8 +35,10 @@ app.get('/', (req, res)=>{
 
 // Importing routes
 import userRoute from "./api/v1/routes/user.js";
+import orderRoute from "./api/v1/routes/order.js"
 
 app.use("/api/v1", userRoute);
+app.use("/api/v1", orderRoute);
 
 
 //using error middleware
