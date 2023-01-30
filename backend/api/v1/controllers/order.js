@@ -1,8 +1,9 @@
+import { instance } from "../../../index.js";
 import ErrorHandler from "../../../utils/ErrorHandler.js";
 import { asyncError } from "../middlewares/errorMiddleware.js";
 import { Order } from "../models/order.js";
 
-//order created logic
+//order created via cash on delivery logic
 export const orderCreated = asyncError(async (req, res, next) => {
   const {
     shippingInfo,
@@ -31,6 +32,44 @@ export const orderCreated = asyncError(async (req, res, next) => {
   res.status(201).json({
     success: true,
     message: "Order Placed Successfully via Cash on Delivery",
+  });
+});
+
+//order created via online logic
+export const placeOrderOnline = asyncError(async (req, res, next) => {
+  const {
+    shippingInfo,
+    orderItems,
+    paymentMethod,
+    itemPrice,
+    shippingCharges,
+    taxCharges,
+    totalAmount,
+  } = req.body;
+
+  const user = "req.user._id";
+
+  const orderOptions = {
+    shippingInfo,
+    orderItems,
+    paymentMethod,
+    itemPrice,
+    shippingCharges,
+    taxCharges,
+    totalAmount,
+    user,
+  };
+
+  const options = {
+    amount: Number(totalAmount) * 100,
+    currency: "INR",
+  };
+  const order = await instance.orders.create(options);
+
+  res.status(201).json({
+    success: true,
+    order,
+    orderOptions,
   });
 });
 

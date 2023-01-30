@@ -1,12 +1,15 @@
 import express  from "express";
 import passport from "passport";
 import { authorizeAdmin, isAuthenticated } from "../middlewares/auth.js";
-import { getAdminOrders, getMyOrders, getOrderDetails, orderCreated, processOrders } from "../controllers/order.js";
+import { getAdminOrders, getMyOrders, getOrderDetails, orderCreated, placeOrderOnline, processOrders } from "../controllers/order.js";
 const router = express.Router();
 
 
-//order created
+//order created via cash on delivery route
 router.post("/create-order", orderCreated)
+
+// order created via online
+router.post("/create-online-order", placeOrderOnline)
 
 //my orders route
 router.get("/myorders", isAuthenticated, getMyOrders)
