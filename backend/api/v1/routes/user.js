@@ -11,11 +11,12 @@ router.get("/google-oauth", passport.authenticate("google",{
 }))
 
 //login route 
-router.get("/login", passport.authenticate("google"),(
-    (req,res, next)=>{
-        res.send("Logged In")
-    }
-))
+router.get(
+    "/login",
+    passport.authenticate("google", {
+      successRedirect: process.env.FRONTEND_URL,
+    })
+  );
 
 //profile route
 router.get("/me", isAuthenticated, getMyProfile)
