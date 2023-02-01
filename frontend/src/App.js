@@ -33,8 +33,30 @@ import "./styles/Table.scss"
 import "./styles/OrderDetails.scss"
 import "./styles/Dashboard.scss"
 import "./styles/About.scss"
+import { useEffect } from "react"
+import {useDispatch, useSelector} from 'react-redux'
+import { loadUser } from "./redux/actions/user"
+import toast, {Toaster} from "react-hot-toast"
 
 function App() {
+
+  const dispatch = useDispatch()
+  const {error, message, user, isAuthenticated} = useSelector((state)=>state.auth)
+
+  useEffect(()=>{
+    dispatch(loadUser())
+  },[dispatch])
+
+  useEffect(() => {
+    if(error){
+      toast.error(error);
+      dispatch({
+        type:"clearError"
+      })
+    }
+  }, [dispatch, error])
+  
+
   return (
    <Router>
     <Header isAuthenticated={true}/>
@@ -56,6 +78,7 @@ function App() {
       <Route path="*" element={<NotFound/>}/>
     </Routes>
     <Footer/>
+    <Toaster/>
    </Router>
   );
 }
