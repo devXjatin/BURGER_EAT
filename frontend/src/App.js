@@ -41,7 +41,7 @@ import toast, {Toaster} from "react-hot-toast"
 function App() {
 
   const dispatch = useDispatch()
-  const {error, message, user, isAuthenticated} = useSelector((state)=>state.auth)
+  const {error, message, isAuthenticated} = useSelector((state)=>state.auth)
 
   useEffect(()=>{
     dispatch(loadUser())
@@ -54,12 +54,20 @@ function App() {
         type:"clearError"
       })
     }
-  }, [dispatch, error])
+
+    //show message
+    if(message){
+      toast.success(message);
+      dispatch({
+        type:"clearMessage"
+      })
+    }
+  }, [dispatch, error, message])
   
 
   return (
    <Router>
-    <Header isAuthenticated={true}/>
+    <Header isAuthenticated={isAuthenticated}/>
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/login" element={<Login/>}/>
