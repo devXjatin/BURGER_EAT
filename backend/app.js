@@ -38,9 +38,10 @@ app.enable("trust proxy");
 connectPassport()
 
 app.use(cors({
-    credtionals:true,
+    credentials:true,
     origin:process.env.FRONTEND_URL,
-    method:["GET", "POST", "PUT", "DELETE"]
+    method:["GET", "POST", "PUT", "DELETE"],
+    optionsSuccessStatus:200
 }))
 
 app.get('/', (req, res)=>{

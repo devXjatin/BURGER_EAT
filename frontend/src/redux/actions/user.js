@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {server} from "../store"
+
 export const loadUser = ()=> async(dispatch)=>{
     try {
         dispatch({
@@ -7,9 +8,13 @@ export const loadUser = ()=> async(dispatch)=>{
         })
 
         const {data} = await axios.get(`${server}/me`,{
-            withCredentials:true
+            credentials: 'include',
+            withCredentials:false,
+            headers:{
+                'Access-Control-Allow-Credentials':true
+            }
         })
-
+        console.log(data)
         dispatch({
             type:"loadUserSuccess",
             payload:data.user
