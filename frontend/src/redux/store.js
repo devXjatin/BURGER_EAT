@@ -9,4 +9,4 @@ const store = configureStore({
 
 export default store;
 
-export const server = "https://burger-eat.onrender.com/api/v1";
+export const server = "https://burger-eat-backend.onrender.com/api/v1";
